@@ -1,17 +1,5 @@
 #!/usr/bin/env python
-
-'''
-    Small demo of how to get a standalone Python script working in Spark 1.1 through the regular Python interpreter,
-    rather than using bin/pyspark <filename.py>.
-
-    Useful for interactive debugging and avoids messing with PYTHONPATH, I used this script to verify my PyCharm IDE
-    was correctly configured.
-
-    Note that Spark is installed at ~/bin/spark/current
-
-    Run this with either python readme_count_a_b.py, or ./readme_count_a_b.py
-
-'''
+# Run this with either python readme_count_a_b.py, or ./readme_count_a_b.py
 
 import sys, os
 
@@ -35,6 +23,6 @@ numBs = read_me_data.filter(lambda s: 'b' in s).count()
 
 print "Lines with a: %i, lines with b: %i" % (numAs, numBs)
 
-# A couple of assertions
+# A couple of assertions to make sure things are correct
 assert(numAs is 83)
 assert(numBs is 38)
