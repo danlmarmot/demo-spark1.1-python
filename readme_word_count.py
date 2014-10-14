@@ -1,11 +1,14 @@
+#!/usr/bin/env python
 __author__ = 'dmckean'
 
 '''
     Run this with either python readme_word_count.py, or ./readme_word_count.py
 '''
 
-import os, sys
+import os
+import sys
 from pprint import pprint
+
 
 SPARK_HOME = os.path.join(os.environ["HOME"], "bin/spark/current/")
 sys.path.append(os.path.join(SPARK_HOME, "python"))
@@ -20,5 +23,4 @@ counts = read_me_data.flatMap(lambda line: line.split(" "))\
     .reduceByKey(lambda a, b: a + b)
 
 word_counts = counts.collect()
-
 pprint(word_counts)
